@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <unordered_map>
 
 // Function to convert a dense matrix to a sparse matrix representation
 void denseToSparse(const std::vector<std::vector<int> >& denseMatrix,
@@ -18,20 +19,20 @@ void denseToSparse(const std::vector<std::vector<int> >& denseMatrix,
 
 //Function to perform dense matrix multiplication
 
-void denseMatrixMultiplication(const std::vector<std::vector<int>>& denseMatrix1,
-                                const std::vector<std::vector<int>>& denseMatrix2,
-                                int N,
-                                const std::vector<std::vector<int>>& denseMatrix_result){
+void denseMatrixMultiplication(const std::vector<std::vector<int> >& denseMatrix1,
+								const std::vector<std::vector<int> >& denseMatrix2,
+                                int squareMatrixSize,
+                                std::vector<std::vector<int> >& denseMatrix_result){
                                 // Write your code here
                                 return;
                                 }
 
 
 //Function to perform dense matrix multiplication using block matrix multiplication
-void blockMatrixMultiplication(const std::vector<std::vector<int>>& denseMatrix1,
-                                const std::vector<std::vector<int>>& denseMatrix2,
+void blockMatrixMultiplication(const std::vector<std::vector<int> >& denseMatrix1,
+								const std::vector<std::vector<int> >& denseMatrix2,
                                 int N, int B,
-                                const std::vector<std::vector<int>>& denseMatrix_result)}
+                                std::vector<std::vector<int> >& denseMatrix_result){
                                 // Write your code here
                                 return;
                             }
@@ -53,7 +54,7 @@ void sparseMatrixMultiplication(const std::vector<int>& values1,
 
 
 //function For finding patterns in graphs using a map
-void findTrianglesAsMap(const std::vector<std::vector<int> >& adjMat, int N, const std::unordered_map<int[], int> outputMap){
+void findTrianglesAsMap(const std::vector<std::vector<int> >& adjMat, int N, std::map<std::vector<int>, int> outputMap){
     // Write your code here
     return;
 }
@@ -61,7 +62,7 @@ void findTrianglesAsMap(const std::vector<std::vector<int> >& adjMat, int N, con
 
 //function For finding patterns in graphs using a vector
 
-void findTrianglesAsVec(const std::vector<std::vector<int> >& adjMat, int N, const std::vector<int[]>& outputVec){
+void findTrianglesAsVec(const std::vector<std::vector<int> >& adjMat, int N,  std::vector<std::vector<int> >& outputVec){
     // Write your code here
     return;
 }

@@ -1,0 +1,6 @@
+1. Compile: g++ main.cpp
+2. Run: ./a.out sample_p1/in1.txt sample_p1/out1.txt sample_p2/ina1.txt sample_p2/outa1.txt sample_p2/inb1.txt sample_p2/outb1.txt sample_p2/inc1.txt sample_p2/outc1.txt sample_p3/in1.txt sample_p3/out1.txt
+
+3. All the outputs will be saved in sample_p1/out1.txt, sample_p2/out1.txt ....
+
+4. You can test the code with custom inputs by adding files in the project directory and by giving the appropriate paths as input to the main.cpp code.
