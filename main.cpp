@@ -85,6 +85,10 @@ int problem2a(string inputPath, string outputPath){
         denseMatrix2.push_back(temp);
     }
 
+    // initialize resultant matrix
+    denseMatrixResult.resize(N, vector<int>(N,0));
+
+
     // measure time taken in nanoseconds
     cout<< "input_size_n:" << denseMatrix1.size() << endl;
     clock_t start = clock();
@@ -137,6 +141,9 @@ int problem2b(string inputPath, string outputPath){
         }
         denseMatrix2.push_back(temp);
     }
+
+    // initialize resultant matrix
+    denseMatrixResult.resize(N, vector<int>(N,0));
 
     cout<< "input_size_n:" << denseMatrix1.size() << endl;
     clock_t start = clock();
@@ -302,27 +309,39 @@ int main(int argc, char** argv) {
     // Calling user code for Problem 1
     int p1Ret, p2aRet,p2bRet,p2cRet, p3Ret;
 
+    cout << "Problem 1" << endl;
     p1Ret = problem1(problem1InputPath, problem1OutputPath);
     if(p1Ret != 0){
 
         cout << "Error in problem 1" << endl;
     }
+    cout << "----------------------------" << endl;
+
+    cout << "Problem 2a" << endl;
     p2aRet = problem2a(problem2aInputPath, problem2aOutputPath);
     if(p2aRet != 0){
       cout << "Error in problem 2a" << endl;
     }
+    cout << "----------------------------" << endl;
+
+    cout << "Problem 2b" << endl;
     p2bRet = problem2b(problem2bInputPath, problem2bOutputPath);
     if(p2bRet != 0){
       cout << "Error in problem 2b" << endl;
     }
+    cout << "----------------------------" << endl;
 
+    cout << "Problem 2c" << endl;
     p2cRet = problem2c(problem2cInputPath, problem2cOutputPath);
     if(p2cRet != 0){
       cout << "Error in problem 2c" << endl;
     }
+    cout << "----------------------------" << endl;
+
+    cout << "Problem 3" << endl;
     p3Ret = problem3(problem3InputPath, problem3OutputPath);
     if(p3Ret != 0){
       cout << "Error in problem 3" << endl;
     }
-    
+    cout << "----------------------------" << endl;
 }
