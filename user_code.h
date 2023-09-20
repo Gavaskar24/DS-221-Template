@@ -1,11 +1,14 @@
 // Problem 1
 // Convert a dense matrix to compressed sparse row format
 // where each rowpointer is the index of the first non-zero element in that row and is offset by 0 at the beginning
-#include<iostream>
-#include<vector>
-#include<fstream>
+#ifndef USER_CODE_H
+#define USER_CODE_H
 
-using namespace std;
+#include <vector>
+#include <string>
+#include <utility>
+#include <unordered_map>
+#include <stdio.h>
 
 void denseToSparse(const std::vector<std::vector<int>>& denseMatrix,
                    std::vector<int>& values,
@@ -53,14 +56,14 @@ void denseMatrixMultiplication(const std::vector<std::vector<int> >& denseMatrix
                                     for(int j=0;j<N;j++){
                                        
                                         for(int k=0;k<N;k++){
-                                            // denseMatrix_result[i][j]+=denseMatrix1[i][k]*denseMatrix2[k][j];
-                                            cout<<denseMatrix1[i][k]*denseMatrix2[k][j]<<" ";
+                                            denseMatrix_result[i][j]+=denseMatrix1[i][k]*denseMatrix2[k][j];
+                                            
                                            
                                         }
-                                        cout<<endl;
-                                        // cout<<denseMatrix_result[i][j]<<" ";
+                                        
+                                      
                                     }
-                                    // cout<<endl;
+                                   
                                 }
                                 return;
                             }
