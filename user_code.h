@@ -100,6 +100,7 @@ void blockMatrixMultiplication(const std::vector<std::vector<int>>& denseMatrix1
                                     }
                                     denseMatrixResult=temp;
                                 }
+                                
 
 void sparseMatrixMultiplication(const std::vector<int>& values1,
                                 const std::vector<int>& columnIndices1,
