@@ -277,35 +277,35 @@ int problem3(string inputPath, string outputPath){
 
 
 int main(int argc, char** argv) {
-    string problem1InputPath = argv[1];
-    string problem1OutputPath = argv[2];
-    string problem2aInputPath = argv[3];
-    string problem2aOutputPath = argv[4];
-    string problem2bInputPath = argv[5];
-    string problem2bOutputPath = argv[6];
-    string problem2cInputPath = argv[7];
-    string problem2cOutputPath = argv[8];
-    string problem3InputPath = argv[9];
-    string problem3OutputPath = argv[10];
+    // string problem1InputPath = argv[1];
+    // string problem1OutputPath = argv[2];
+    // string problem2aInputPath = argv[1];
+    // string problem2aOutputPath = argv[2];
+    string problem2bInputPath = argv[1];
+    string problem2bOutputPath = argv[2];
+    // string problem2cInputPath = argv[7];
+    // string problem2cOutputPath = argv[8];
+    // string problem3InputPath = argv[9];
+    // string problem3OutputPath = argv[10];
    
 
     // Calling user code for Problem 1
     int p1Ret, p2aRet,p2bRet,p2cRet, p3Ret;
 
-    cout << "Problem 1" << endl;
-    p1Ret = problem1(problem1InputPath, problem1OutputPath);
-    if(p1Ret != 0){
+    // cout << "Problem 1" << endl;
+    // p1Ret = problem1(problem1InputPath, problem1OutputPath);
+    // if(p1Ret != 0){
 
-        cout << "Error in problem 1" << endl;
-    }
-    cout << "----------------------------" << endl;
+    //     cout << "Error in problem 1" << endl;
+    // }
+    // cout << "----------------------------" << endl;
 
-    cout << "Problem 2a" << endl;
-    p2aRet = problem2a(problem2aInputPath, problem2aOutputPath);
-    if(p2aRet != 0){
-      cout << "Error in problem 2a" << endl;
-    }
-    cout << "----------------------------" << endl;
+    // cout << "Problem 2a" << endl;
+    // p2aRet = problem2a(problem2aInputPath, problem2aOutputPath);
+    // if(p2aRet != 0){
+    //   cout << "Error in problem 2a" << endl;
+    // }
+    // cout << "----------------------------" << endl;
 
     cout << "Problem 2b" << endl;
     p2bRet = problem2b(problem2bInputPath, problem2bOutputPath);
@@ -314,17 +314,17 @@ int main(int argc, char** argv) {
     }
     cout << "----------------------------" << endl;
 
-    cout << "Problem 2c" << endl;
-    p2cRet = problem2c(problem2cInputPath, problem2cOutputPath);
-    if(p2cRet != 0){
-      cout << "Error in problem 2c" << endl;
-    }
-    cout << "----------------------------" << endl;
+    // cout << "Problem 2c" << endl;
+    // p2cRet = problem2c(problem2cInputPath, problem2cOutputPath);
+    // if(p2cRet != 0){
+    //   cout << "Error in problem 2c" << endl;
+    // }
+    // cout << "----------------------------" << endl;
 
-    cout << "Problem 3" << endl;
-    p3Ret = problem3(problem3InputPath, problem3OutputPath);
-    if(p3Ret != 0){
-      cout << "Error in problem 3" << endl;
-    }
-    cout << "----------------------------" << endl;
+    // cout << "Problem 3" << endl;
+    // p3Ret = problem3(problem3InputPath, problem3OutputPath);
+    // if(p3Ret != 0){
+    //   cout << "Error in problem 3" << endl;
+    // }
+    // cout << "----------------------------" << endl;
 }
