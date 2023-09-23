@@ -108,7 +108,7 @@ void denseMatrixMultiplication(const std::vector<std::vector<int> >& denseMatrix
 
 // ###############################################################################################  //
 
-// problem 2(b)
+// Problem 2b
 //Function to perform dense matrix multiplication using block matrix multiplication
 void blockMatrixMultiplication(const std::vector<std::vector<int>>& denseMatrix1,
                                const std::vector<std::vector<int>>& denseMatrix2,
@@ -128,6 +128,16 @@ void blockMatrixMultiplication(const std::vector<std::vector<int>>& denseMatrix1
         }
     }
 }
+
+// Pseudo code for problem 2b
+// Iterate through rows of result matrix in blocks of size B
+// Iterate through columns of result matrix in blocks of size B
+// Iterate through common elements (columns of first and rows of second) in blocks of size B
+// Nested loops to multiply submatrices and add to result matrix
+// Store partial results in result matrix after each inner loop
+// to avoid recomputing products 
+// cache results of block matrix multiplications
+
 
 
 // Function to perform sparse matrix multiplication
@@ -192,15 +202,32 @@ void findTrianglesAsMap(const std::vector<std::vector<int>>& adjMat, int N, std:
     for (int i = 0; i < N; i++) {
         for (int j = i + 1; j < N; j++) {
             // Check if edge (i, j) exists
-            if (adjMat[i][j] == 0) continue;
-
+           
             for (int k = j + 1; k < N; k++) {
                 // Check if k forms a triangle with i and j
-                if (adjMat[i][k] != 0 && adjMat[j][k] != 0) {
+                if (adjMat[i][k] != 0 && adjMat[k][j] != 0 && adjMat[j][i]!=0) {
                     // Found a triangle, increment count
-                    std::vector<int> pattern = { adjMat[i][j], adjMat[j][k], adjMat[k][i] };
-                    outputMap[pattern]++;
+                    std::vector<int> pattern1 = { adjMat[i][k], adjMat[k][j], adjMat[j][i] };
+                    outputMap[pattern1]++;
+
+                    std::vector<int> pattern2 = {  adjMat[k][j], adjMat[j][i],adjMat[i][k] };
+                    outputMap[pattern2]++;
+
+                    std::vector<int> pattern3 = {   adjMat[j][i],adjMat[i][k],adjMat[k][j]};
+                    outputMap[pattern3]++;
                 }
+                if (adjMat[j][k] !=0 && adjMat[k][i]!=0 && adjMat[i][j]!=0)
+                {
+                    std::vector<int> pattern4 = { adjMat[i][j], adjMat[j][k], adjMat[k][i] };
+                    outputMap[pattern4]++;
+
+                     std::vector<int> pattern5 = {  adjMat[k][i] ,adjMat[i][j], adjMat[j][k]};
+                    outputMap[pattern5]++;
+
+                     std::vector<int> pattern6 = { adjMat[j][k],adjMat[k][i] ,adjMat[i][j]};
+                    outputMap[pattern6]++;
+                }
+                
             }
         }
     }
@@ -211,7 +238,6 @@ void findTrianglesAsVec(const std::vector<std::vector<int>>& adjMat, int N, std:
 
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-
             if (adjMat[i][j] == 0) continue;
 
             std::unordered_set<int> visited;
@@ -219,30 +245,29 @@ void findTrianglesAsVec(const std::vector<std::vector<int>>& adjMat, int N, std:
             visited.insert(j);
 
             for (int k = 0; k < N; k++) {
-
                 if (adjMat[j][k] != 0 && adjMat[k][i] != 0 && visited.count(k) == 0) {
-
                     std::vector<int> pattern = { adjMat[i][j], adjMat[j][k], adjMat[k][i], 1 };
                     patterns.push_back(pattern);
-
                     visited.insert(k);
                 }
             }
         }
     }
 
-    // Sort patterns and combine duplicates
-    std::sort(patterns.begin(), patterns.end());
+    // Sort patterns based on the first three elements (edge types)
+    std::sort(patterns.begin(), patterns.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
+        return std::tie(a[0], a[1], a[2]) < std::tie(b[0], b[1], b[2]);
+    });
 
     for (int i = 0; i < patterns.size(); i++) {
-        if (i == 0 || patterns[i] != patterns[i - 1]) {
+        if (i == 0 || std::tie(patterns[i][0], patterns[i][1], patterns[i][2]) != std::tie(patterns[i - 1][0], patterns[i - 1][1], patterns[i - 1][2])) {
             outputVec.push_back(patterns[i]);
-        }
-        else {
+        } else {
             outputVec.back()[3]++;
         }
     }
 }
+
 
 
 #endif // USER_CODE_H

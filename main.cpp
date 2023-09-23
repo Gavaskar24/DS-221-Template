@@ -250,7 +250,7 @@ int problem3(string inputPath, string outputPath){
 
     cout<< "input_size_n:" << numVertices << endl;
     clock_t start = clock();
-    findTrianglesAsMap(adjMatrix, numVertices,outputMap);
+    // findTrianglesAsMap(adjMatrix, numVertices,outputMap);
     clock_t end = clock();
     // time diff in nanoseconds
     double time_taken = double(end - start) / double(CLOCKS_PER_SEC) * 1000000000;
@@ -259,9 +259,9 @@ int problem3(string inputPath, string outputPath){
     double time_taken2 = double(end - start) / double(CLOCKS_PER_SEC) * 1000000000;
     cout << "exec_duration_nanosec:" << fixed << time_taken2 << setprecision(9)<< endl;
 
-    for (auto it = outputMap.begin(); it != outputMap.end(); it++){
-        outputFile << it->first[0] << " " << it->first[1] << " " << it->first[2] << " " << it->second << endl;
-    }
+    // for (auto it = outputMap.begin(); it != outputMap.end(); it++){
+    //     outputFile << it->first[0] << " " << it->first[1] << " " << it->first[2] << " " << it->second << endl;
+    // }
     for (int i = 0; i < outputVec.size(); i++){
         outputFile << outputVec[i][0] << " " << outputVec[i][1] << " " << outputVec[i][2] << " " << outputVec[i][3] << endl;
     }
@@ -281,12 +281,12 @@ int main(int argc, char** argv) {
     // string problem1OutputPath = argv[2];
     // string problem2aInputPath = argv[1];
     // string problem2aOutputPath = argv[2];
-    string problem2bInputPath = argv[1];
-    string problem2bOutputPath = argv[2];
+    // string problem2bInputPath = argv[1];
+    // string problem2bOutputPath = argv[2];
     // string problem2cInputPath = argv[7];
     // string problem2cOutputPath = argv[8];
-    // string problem3InputPath = argv[9];
-    // string problem3OutputPath = argv[10];
+    string problem3InputPath = argv[1];
+    string problem3OutputPath = argv[2];
    
 
     // Calling user code for Problem 1
@@ -307,12 +307,12 @@ int main(int argc, char** argv) {
     // }
     // cout << "----------------------------" << endl;
 
-    cout << "Problem 2b" << endl;
-    p2bRet = problem2b(problem2bInputPath, problem2bOutputPath);
-    if(p2bRet != 0){
-      cout << "Error in problem 2b" << endl;
-    }
-    cout << "----------------------------" << endl;
+    // cout << "Problem 2b" << endl;
+    // p2bRet = problem2b(problem2bInputPath, problem2bOutputPath);
+    // if(p2bRet != 0){
+    //   cout << "Error in problem 2b" << endl;
+    // }
+    // cout << "----------------------------" << endl;
 
     // cout << "Problem 2c" << endl;
     // p2cRet = problem2c(problem2cInputPath, problem2cOutputPath);
@@ -321,10 +321,10 @@ int main(int argc, char** argv) {
     // }
     // cout << "----------------------------" << endl;
 
-    // cout << "Problem 3" << endl;
-    // p3Ret = problem3(problem3InputPath, problem3OutputPath);
-    // if(p3Ret != 0){
-    //   cout << "Error in problem 3" << endl;
-    // }
-    // cout << "----------------------------" << endl;
+    cout << "Problem 3" << endl;
+    p3Ret = problem3(problem3InputPath, problem3OutputPath);
+    if(p3Ret != 0){
+      cout << "Error in problem 3" << endl;
+    }
+    cout << "----------------------------" << endl;
 }
